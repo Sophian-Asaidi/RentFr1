@@ -10,7 +10,7 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
-        <form method="POST" action="connexion1.php">
+        <form method="POST" action="connexion.php">
             <a href="index.html">
                 <div class="logo-details">
                     <i class="bx bxl-c-plus-plus"></i>
@@ -21,7 +21,7 @@
 
             <div class="input">
                 <tr>
-                    <td> <input type="email" name="mail" placeholder="Email" /> </td>
+                    <td> <input type="" name="mail" placeholder="Email" /> </td>
                 </tr>
                 <tr>
                 <br>

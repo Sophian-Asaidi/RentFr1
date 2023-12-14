@@ -13,100 +13,14 @@ require_once '../include/bdd.inc.php';
         <script src="../autocomplete/autocomplete.js"></script>
         <script  src="../autocomplete/jquery.min.js"></script>
         <script src="../autocomplete/script.js"></script>
+        <link rel="stylesheet" href="../IndexF/css/cssAd.css">
 
 
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f4f4f4;
-            }
-
-
-            header {
-                background-color: #333;
-                padding: 10px;
-                text-align: center;
-            }
-
-            nav {
-                background-color: #444;
-                overflow: hidden;
-            }
-
-            nav a {
-                float: left;
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-
-            nav a:hover {
-                background-color: #ddd;
-                color: black;
-            }
-
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                color: #333;
-            }
-
-            form {
-                margin-top: 20px;
-            }
-
-            .formulaire-label {
-                display: block;
-                margin-top: 10px;
-            }
-
-            .formulaire-input {
-                width: 100%;
-                padding: 8px;
-                margin-top: 5px;
-                margin-bottom: 10px;
-                box-sizing: border-box;
-            }
-
-            .btn {
-                padding: 10px;
-                background-color: #333;
-                color: white;
-                border: none;
-                cursor: pointer;
-            }
-
-            .btn-primary {
-                background-color: #007bff;
-            }
-
-            .table {
-                width: 100%;
-                border-collapse: collapse;
-                margin-top: 20px;
-            }
-
-            .table th,
-            .table td {
-                border: 1px solid #ddd;
-                padding: 8px;
-                text-align: left;
-            }
-
-            .table th {
-                background-color: #f2f2f2;
-            }
-        </style>
+        
     </head>
 
     <body>

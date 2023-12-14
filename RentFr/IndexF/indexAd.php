@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html lang="en">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Real Estate Agency</title>
+        <title>Espace Admin</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <style>
             body {
@@ -38,8 +38,8 @@
                 padding: 20px;
             }
 
-            h2 {
-                color: #333;
+            h2,h1 {
+                color: blue;
             }
 
             .service {
@@ -76,7 +76,7 @@
 
     <body>
         <header>
-            <h1>Welcome to our Real Estate Agency</h1>
+            <h1>Espace Admin </h1>
         </header>
 
         <nav class="navbar navbar-dark bg-dark">
@@ -84,31 +84,16 @@
             <a class="navbar-brand" href="../affichage/aff_bien.php">Nos biens</a>
             <a class="navbar-brand" href="../affichage/aff_client.php">Nos clients</a>
             <a class="navbar-brand" href="../affichage/aff_reservation.php">Nos res</a>
-            <a class="navbar-brand" href="../affichage/aff_type_bien.php">Type bien</a>
+            <a class="log_out" href="deconnexion.php">Deconnexion</a>
+            
         </nav>
 
-        <div class="container">
+        <div class="container"><br><br><br><br><br><br>
             <section class="service">
-                <h2>Nos Services</h2>
-                <p>Explore our range of real estate services tailored to meet your needs</p>
-            </section>
+                <h2>Espace Admin</h2>
+                 </section>
 
-            <section class="employee">
-                <h2>Meet Our Team</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="employee1.jpg" alt="Employee 1">
-                        <h4>Saadan</h4>
-                        <p>Agent immobilier</p>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="employee2.jpg" alt="Employee 2">
-                        <h4>Asaidi</h4>
-                        <p> Manager</p>
-                    </div>
-
-                </div>
-            </section>
+            
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -117,3 +102,4 @@
     </body>
 
 </html>
+`
