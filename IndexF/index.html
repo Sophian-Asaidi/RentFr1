@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Site Metas -->
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>RentFR</title>
+
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="../IndexF/css/bootstrap.css" />
+
+        <!-- fonts style -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="../IndexF/css/style.css" rel="stylesheet" />
+        <!-- responsive style -->
+        <link href="../IndexF/css/responsive.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    </head>
+
+    <body>
+        <div class="hero_area">
+            <!-- header section strats -->
+            <header class="header_section">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg custom_nav-container">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="images/logo.png" alt="" />
+                        </a>
+                        <div class="navbar-collapse" id="">
+                            <ul class="navbar-nav justify-content-between ">
+                                <div class="User_option">
+                                    <li class="">
+                                        <a class="mr-4" href="formulaire_connexion.php">
+                                            Connexion
+                                        </a>
+                                        <a class="mr-4" href="formulaire_inscription.php">
+                                            Inscription
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+
+                            <div class="custom_menu-btn">
+                                <button onclick="openNav()">
+                                    <span class="s-1">
+
+                                    </span>
+                                    <span class="s-2">
+
+                                    </span>
+                                    <span class="s-3">
+
+                                    </span>
+                                </button>
+                            </div>
+                            <div id="myNav" class="overlay">
+                                <div class="overlay-content">
+                                    <a href="">Accueil</a>
+                                    <a href="">A propos</a>
+                                    <a href="">Biens</a>
+                                    <a href="">Contactez Nous</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            <!-- end header section -->
+            <!-- slider section -->
+            <section class="slider_section ">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4 offset-md-1">
+                            <div class="detail-box">
+                                <h1>
+                                    <span> Moderne</span> <br>
+                                    Appartement <br>
+                                    Maison
+                                </h1><br><br><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- end slider section -->
+        </div>
+
+        <!-- find section 
+        <section class="find_section ">
+          <div class="container">
+            <form action="">
+              <div class=" form-row">
+                <div class="col-md-5">
+                  <input type="text" class="form-control" placeholder="Cherchez votre catégorie ">
+                </div>
+                <div class="col-md-5">
+                  <input type="text" class="form-control" placeholder="Emplacement">
+                </div>
+                <div class="col-md-2">
+                  <button type="submit" class="">
+                    Rechercher
+                  </button>
+                </div>
+              </div>
+      
+            </form>
+          </div>
+        </section>
+      
+        end find section -->
+
+        <section class="find_section">
+            <div class="container">
+                <form action="" id="searchForm">
+                    <div class="form-row">
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="categorie" placeholder="Cherchez votre catégorie" autocomplete="off">
+                            <div id="categorieSuggestions"></div>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="emplacement" placeholder="Emplacement" autocomplete="off">
+                            <div id="emplacementSuggestions"></div>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit">
+                                Rechercher
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <script>
+
+            $(document).ready(function () {
+                $("#categorie, #emplacement").on("input", function () {
+                    var keyword = $(this).val();
+                    var suggestionContainerId = $(this).attr("id") + "Suggestions";
+
+                    if (keyword !== "") {
+                        $.ajax({
+                            url: "../autocomplete/autocomp2.php",
+                            method: "POST",
+                            data: {keyword: keyword, type: $(this).attr("id")},
+                            success: function (data) {
+                                $("#" + suggestionContainerId).html(data);
+                            }
+                        });
+                    } else {
+                        $("#" + suggestionContainerId).html("");
+                    }
+                });
+
+                // Gérez la sélection d'une suggestion ici et remplissez le champ approprié.
+                $(document).on("click", "#categorieSuggestions li", function () {
+                    var selectedValue = $(this).text();
+                    $("#categorie").val(selectedValue);
+                    $("#categorieSuggestions").html(""); // Cache les suggestions
+                });
+
+                $(document).on("click", "#emplacementSuggestions li", function () {
+                    var selectedValue = $(this).text();
+                    $("#emplacement").val(selectedValue);
+                    $("#emplacementSuggestions").html(""); // Cache les suggestions
+                });
+            });
+
+        </script>
+
+
+        <!-- about section -->
+
+        <section class="about_section layout_padding-bottom">
+            <div class="square-box">
+                <img src="images/square.png" alt="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="img-box">
+                            <img src="images/about-img.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-box">
+                            <div class="heading_container">
+                                <h2>
+                                    A propos de nous 
+                                </h2>
+                            </div>
+                            <p>
+                                Bienvenue chez Rent Fr, votre partenaire immobilier. Spécialisés dans la location et la vente de biens immobiliers, nous simplifions votre recherche. Trouvez la maison ou l'appartement de vos rêves avec Rent Fr, où l'expertise rencontre la simplicité.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- end about section -->
+
+        <!-- sale section -->
+
+        <section class="sale_section layout_padding-bottom">
+            <div class="container-fluid">
+                <div class="heading_container">
+                    <h2>
+                        Biens 
+                    </h2>
+
+                </div>
+                <div class="sale_container">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="images/s-1.jpg" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h6>
+                                Appartements, Maisons
+                            </h6>
+
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="images/s-2.jpg" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h6>
+                                Appartements, Maisons
+                            </h6>
+
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="images/s-3.jpg" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h6>
+                                Appartements, Maisons
+                            </h6>
+
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="images/s-4.jpg" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h6>
+                                Appartements, Maisons
+                            </h6>
+
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="images/s-5.jpg" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h6>
+                                Appartements, Maisons
+                            </h6>
+
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="images/s-6.jpg" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h6>
+                                Appartements, Maisons
+                            </h6>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-box">
+                    <a href="">
+                        Plus
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- end sale section -->
+
+        <!-- price section -->
+
+
+
+        <!-- deal section -->
+
+        <section class="deal_section layout_padding-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="detail-box">
+                            <div class="heading_container">
+                                <h2>
+                                    Bonne Affaire pour une Maison
+                                </h2>
+                            </div>
+                            <p>
+                                Chez Rent Fr, nous faisons la différence. Nos biens immobiliers sont soigneusement sélectionnés pour répondre à vos besoins spécifiques. Chaque propriété que nous proposons est le résultat d'un engagement inébranlable envers la qualité et l'excellence. Obtenez bien plus qu'une simple maison – découvrez un chez-vous avec Rent Fr.
+                            </p>
+                            <a href="">
+                                Obtenez un Devis
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="img-box">
+                            <div class="box b1">
+                                <img src="images/d-1.jpg" alt="">
+                            </div>
+                            <div class="box b1">
+                                <img src="images/d-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- client secction -->
+
+
+
+        <!-- contact section -->
+
+        <section class="contact_section ">
+            <div class="container">
+                <div class="heading_container" href"">
+                    <h2>
+                        Contactez Nous 
+                    </h2>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 px-0">
+
+                    </div>
+                    <div class="col-lg-4 col-md-5 ">
+                        <div class="form_container">
+                            <form action="">
+                                <div>
+                                    <input type="text" placeholder="Nom" />
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="Prenom" />
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Mail" />
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="Numero de téléphone" />
+                                </div>
+                                <div>
+                                    <input type="text" class="message-box" placeholder="Message" />
+                                </div>
+                                <div class="d-flex ">
+                                    <button>
+                                        Send
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- end contact section -->
+
+
+
+        <!-- info section -->
+        <section class="info_section ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="info_contact">
+                            <h5>
+                                Notre Entreprise
+                            </h5>
+                            <div>
+                                <div class="img-box">
+                                    <img src="images/location.png" width="18px" alt="">
+                                </div>
+                                <p>
+                                    Lycée Bahuet
+                                </p>
+                            </div>
+                            <div>
+                                <div class="img-box">
+                                    <img src="images/phone.png" width="12px" alt="">
+                                </div>
+                                <p>
+                                    +33 6 25 47 98 
+                                </p>
+                            </div>
+                            <div>
+                                <div class="img-box">
+                                    <img src="images/mail.png" width="18px" alt="">
+                                </div>
+                                <p>
+                                    asaidisaadan@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_info">
+                            <h5>
+                                Information
+                            </h5>
+                            <p>
+                                Rentfr vous aidera à trouver votre logement de rêve 
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="info_links">
+                            <h5>
+                                Liens utiles
+                            </h5>
+                            <div class="social_box">
+                                <a href="https://www.facebook.com/">
+                                    <img src="images/fb.png" alt="">
+                                </a>
+                                <a href="https://twitter.com/WalSsMR">
+                                    <img src="images/twitter.png" alt="">
+                                </a>
+                                <a href="https://www.linkedin.com/in/walid-saadan-23b307250/">
+                                    <img src="images/linkedin.png" alt="">
+                                </a>
+                                <a href="https://www.youtube.com/">
+                                    <img src="images/youtube.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end info_section -->
+    <span id="displayYear"></span>
+
+
+
+
+
+    <!--<script type="text/javascript" src="../IndexF/js/jquery-3.4.1.min.js"></script>-->
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <script type="text/javascript" src="./js/custom.js"></script>
+
+
+</body>
+
+</html>
