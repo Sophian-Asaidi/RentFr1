@@ -107,7 +107,6 @@ class Client {
 
         $sql = "INSERT INTO client (nom_client, prenom_client, cop_client, vil_client, mail_client, pass_client, statut_client, valid_client)
         VALUES (:nom, :prenom, :cop, :vil, :mail, :pass, :statut, :valid)";
-        $con = new PDO("mysql:host=localhost;dbname=rentfr", "root", "");
         $stmt = $this->con->prepare($sql);
         $stmt->execute($data);
     }
