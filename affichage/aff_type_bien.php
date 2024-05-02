@@ -2,7 +2,7 @@
 require_once '../class/reservation.class.php';
 require_once '../include/bdd.inc.php';
 
-$con = new PDO("mysql:host=localhost;dbname=rentfr", "root", "");
+$con = new PDO("mysql:host=localhost;dbname=rentfr", "root", "root");
 $oReservation = new Reservation($con);
 ?>
 

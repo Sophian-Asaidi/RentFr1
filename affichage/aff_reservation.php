@@ -2,7 +2,7 @@
 require_once '../class/reservation.class.php';
 require_once '../include/bdd.inc.php';
 
-$con = new PDO("mysql:host=localhost;dbname=rentfr", "root", "");
+$con = new PDO("mysql:host=localhost;dbname=rentfr", "root", "root");
 $oReservation = new Reservation($con);
 ?>
 
@@ -57,9 +57,9 @@ $oReservation = new Reservation($con);
                             echo "<tr>";
                             echo "<td>", $row['id_reservation'], "</td>";
                             echo "<td><input type='text' name='title[", $row['id_reservation'], "]' value='", $row['title'], "'></td>";
-                            echo "<td><input type='text' name='date_rese[", $row['id_reservation'], "]' value='", $row['date_rese'], "'></td>";
-                            echo "<td><input type='text' name='dad_resa[", $row['id_reservation'], "]' value='", $row['dad_resa'], "'></td>";
-                            echo "<td><input type='text' name='daf_resa[", $row['id_reservation'], "]' value='", $row['daf_resa'], "'></td>";
+                            echo "<td><input type='date' name='date_rese[", $row['id_reservation'], "]' value='", $row['date_rese'], "'></td>";
+                            echo "<td><input type='date' name='dad_resa[", $row['id_reservation'], "]' value='", $row['dad_resa'], "'></td>";
+                            echo "<td><input type='date' name='daf_resa[", $row['id_reservation'], "]' value='", $row['daf_resa'], "'></td>";
                             echo "<td><input type='text' name='commentaire[", $row['id_reservation'], "]' value='", $row['commentaire'], "'></td>";
                             echo "<td><input type='text' name='moderation[", $row['id_reservation'], "]' value='", $row['moderation'], "'></td>";
                             echo "<td><input type='text' name='annulation[", $row['id_reservation'], "]' value='", $row['annulation'], "'></td>";
@@ -72,7 +72,7 @@ $oReservation = new Reservation($con);
                             echo "</tr>";
                         }
                     } else {
-                        echo "<p>Aucun résultat trouvé.</p>";
+                        echo "<p>Aucun résultat trouvé.</p>";               
                     }
                     ?>
                 </tbody>
@@ -86,13 +86,13 @@ $oReservation = new Reservation($con);
             <input type="text" name="title" id="title" class="formulaire-input">
 
             <label for="date_rese" class="formulaire-label">Date Réservation : </label>
-            <input type="text" name="date_rese" id="date_rese" class="formulaire-input">
+            <input type="date" name="date_rese" id="date_rese" class="formulaire-input">
 
             <label for="dad_resa" class="formulaire-label">Date Début Réservation : </label>
-            <input type="text" name="dad_resa" id="dad_resa" class="formulaire-input">
+            <input type="date" name="dad_resa" id="dad_resa" class="formulaire-input">
 
             <label for="daf_resa" class="formulaire-label">Date Fin Réservation : </label>
-            <input type="text" name="daf_resa" id="daf_resa" class="formulaire-input">
+            <input type="date" name="daf_resa" id="daf_resa" class="formulaire-input">
 
             <label for="commentaire" class="formulaire-label">Commentaire : </label>
             <input type="text" name="commentaire" id="commentaire" class="formulaire-input">

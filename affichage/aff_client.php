@@ -46,7 +46,7 @@ require_once '../include/bdd.inc.php';
                     </thead>
                     <tbody class="tableau_corps">
                         <?php
-                        $con = new PDO("mysql:host=localhost;dbname=rentfr", "root", "");
+                        $con = new PDO("mysql:host=localhost;dbname=rentfr", "root", "root");
                         $oClient = new Client($con);
                         $result = $oClient->selectClient();
 

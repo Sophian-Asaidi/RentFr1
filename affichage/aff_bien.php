@@ -59,7 +59,7 @@ require_once '../include/bdd.inc.php';
                     </thead>
                     <tbody class="tableau_corps">
                         <?php
-                        $con = new PDO("mysql:host=localhost;dbname=rentfr", "root", "");
+                        $con = new PDO("mysql:host=localhost;dbname=rentfr", "root", "root");
                         $oBien = new Bien($con);
                         $biens = $oBien->selectBien();
 
@@ -126,6 +126,10 @@ require_once '../include/bdd.inc.php';
 
                 <label for="id_type_bien" class="formulaire-label">ID Type Bien : </label>
                 <input type="text" name="lib_type_bien" id="lib_type_bien" class="formulaire-input">
+                
+                <label for="id_activite" class="formulaire-label">Activite : </label>
+                <input type="text" name="lib_activite" id="lib_activite" class="formulaire-input">
+
 
 
 

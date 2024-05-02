@@ -15,7 +15,7 @@ class TypeBien {
 
     // Récupérer un type de bien par ID
     public static function getTypeBienById($id) {
-        $con = new PDO('mysql:host=localhost;dbname=rentfr', 'root', '');
+        $con = new PDO('mysql:host=localhost;dbname=rentfr', 'root', 'root');
         $sql = "SELECT * FROM type_bien WHERE id_type_bien = :id";
         $stmt = $con->prepare($sql);
         $stmt->execute([':id' => $id]);
@@ -24,7 +24,7 @@ class TypeBien {
 
     // Insérer un type de bien
     public static function insertTypeBien($data) {
-        $con = new PDO('mysql:host=localhost;dbname=rentfr', 'root', ''); 
+        $con = new PDO('mysql:host=localhost;dbname=rentfr', 'root', 'root'); 
         $sql = "INSERT INTO type_bien (lib_type_bien) VALUES (:lib)";
         $stmt = $con->prepare($sql);
         $stmt->execute($data);
@@ -32,7 +32,7 @@ class TypeBien {
 
     // Mettre à jour un type de bien
     public static function updateTypeBien($id, $data) {
-        $con = new PDO('mysql:host=localhost;dbname=rentfr', 'root', '');
+        $con = new PDO('mysql:host=localhost;dbname=rentfr', 'root', 'root');
         $data[':id'] = $id;
         $sql = "UPDATE type_bien SET lib_type_bien = :lib WHERE id_type_bien = :id";
         $stmt = $con->prepare($sql);
@@ -41,7 +41,7 @@ class TypeBien {
 
     // Supprimer un type de bien par ID
     public static function deleteTypeBien($id) {
-        $con = new PDO('mysql:host=localhost;dbname=rentfr', 'root', ''); 
+        $con = new PDO('mysql:host=localhost;dbname=rentfr', 'root', 'root'); 
         $sql = "DELETE FROM type_bien WHERE id_type_bien = :id";
         $stmt = $con->prepare($sql);
         $stmt->execute([':id' => $id]);
@@ -49,7 +49,7 @@ class TypeBien {
 
     // Récupérer tous les types de biens
     public static function getAllTypesBiens() {
-        $con = new PDO('mysql:host=localhost;dbname=rentfr', 'root', '');
+        $con = new PDO('mysql:host=localhost;dbname=rentfr', 'root', 'root');
         $sql = "SELECT * FROM type_bien";
         $stmt = $con->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

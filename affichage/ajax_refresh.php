@@ -1,6 +1,6 @@
 <?php
 require_once '../include/bdd.inc.php';
-$con = new PDO("mysql:host=localhost;dbname=rentfr", "root", "");                   
+$con = new PDO("mysql:host=localhost;dbname=rentfr", "root", "root");                   
 $keyword = '%' . $_POST['keyword'] . '%';
 
 $sql = "SELECT * FROM commune_2022 WHERE ville LIKE (:var) OR cp LIKE (:var) ORDER BY ville ASC LIMIT 0, 10";
